@@ -99,6 +99,73 @@ document.addEventListener('DOMContentLoaded', function() {
             cafeObserver.observe(document.querySelector('#inicio'));
         }
     }
+    document.addEventListener('DOMContentLoaded', function() {
+        // Cria o botão do menu hamburguer
+        const menuToggle = document.createElement('div');
+        menuToggle.className = 'menu-toggle';
+        menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+        document.querySelector('header').appendChild(menuToggle);
+        
+        // Controla o menu mobile
+        menuToggle.addEventListener('click', function() {
+            const nav = document.querySelector('nav');
+            nav.classList.toggle('active');
+            
+            // Alterna entre ícone de menu e X
+            const icon = this.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+            
+            // Impede a rolagem quando o menu está aberto
+            document.body.style.overflow = nav.classList.contains('active') ? 'hidden' : '';
+        });
+        
+        // Fecha o menu ao clicar em um link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('nav').classList.remove('active');
+                document.querySelector('.menu-toggle i').classList.remove('fa-times');
+                document.querySelector('.menu-toggle i').classList.add('fa-bars');
+                document.body.style.overflow = '';
+            });
+        });
+    
+        // Configura rolagem suave
+        function setupSmoothScroll() {
+            const links = document.querySelectorAll('a[href^="#"]');
+            
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (!target) return;
+                    
+                    const headerHeight = document.querySelector('header').offsetHeight;
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                    
+                    history.replaceState(null, null, `#${target.id}`);
+                });
+            });
+        }
+    
+        // Ajusta o padding do conteúdo principal para não ficar atrás do header
+        function adjustContentPadding() {
+            const headerHeight = document.querySelector('header').offsetHeight;
+            document.querySelector('#inicio').style.paddingTop = headerHeight + 'px';
+        }
+        
+        // Inicializa tudo
+        setupSmoothScroll();
+        adjustContentPadding();
+        
+        // Recalcula quando a janela é redimensionada
+        window.addEventListener('resize', adjustContentPadding);
+    });
 
     // Inicializa tudo
     setupSmoothScroll();
