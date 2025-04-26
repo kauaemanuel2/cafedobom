@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Configura rolagem suave com remoção do # da URL
+    // Configura rolagem suave com controle do # na URL
     function setupSmoothScroll() {
         const links = document.querySelectorAll('a[href^="#"]');
         
@@ -54,13 +54,21 @@ document.addEventListener('DOMContentLoaded', function() {
                     behavior: 'smooth'
                 });
                 
-                // Adiciona o hash na URL temporariamente para rolagem
-                history.pushState(null, null, targetId);
-                
-                // Remove o hash após a rolagem
-                setTimeout(() => {
-                    history.replaceState(null, null, ' ');
-                }, 1000);
+                // Lógica diferenciada para cada seção
+                if (targetId === '#inicio') {
+                    // Mantém o #inicio na URL
+                    history.pushState(null, null, targetId);
+                } else {
+                    // Adiciona o hash temporariamente para rolagem
+                    history.pushState(null, null, targetId);
+                    
+                    // Remove o hash após a rolagem (exceto para #inicio)
+                    setTimeout(() => {
+                        if (window.location.hash === targetId) {
+                            history.replaceState(null, null, ' ');
+                        }
+                    }, 1000);
+                }
             });
         });
     }
