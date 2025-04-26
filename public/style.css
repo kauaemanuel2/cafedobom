@@ -89,7 +89,6 @@ main {
 
 .conteudo {
     display: flex;
-    position: relative;
     z-index: 2;
     padding: 5rem 3rem;
 }
