@@ -13,12 +13,19 @@ body {
     background-color: #1F1E26;
     color: white;
     position: relative;
+    padding-top: 100px;
+    overflow: hidden;
 }
 
 header {
-    display: flex;
-    margin-bottom: 5rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: #1F1E26;
     padding: 1rem 2rem;
+    margin-bottom: 0;
 }
 
 header h1 {
@@ -72,15 +79,24 @@ nav li {
 .foto img {
     height: 1200px;
     position: absolute;
-    top: -180px;
-    left: 500px;
-    max-width: 100%;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-30%);
+    max-width: 60vw;
+    object-fit: contain;
+    z-index: 1;
+}
+
+main {
+    margin-top: 80px; 
 }
 
 .conteudo {
     display: flex;
+    position: relative;
+    z-index: 2;
     margin-left: 3rem;
-    padding: 2rem;
+    padding-bottom: 200px
 }
 
 .conteudo h2 {
@@ -310,6 +326,7 @@ nav li {
 
 #newsletter img {
     width: 50%;
+    height: 350px;
     object-fit: cover;
     object-position: center;
 }
@@ -432,20 +449,19 @@ section[id] {
     padding-top: 20px;
 }
 
-header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    background-color: #1F1E26;
-}
-
 /* ============= RESPONSIVIDADE ============= */
+
+@media (max-width: 1600px) {
+    .foto img {
+        height: 1000px;
+        left: 55%;
+    }
 
 @media (max-width: 1200px) {
     .foto img {
         height: 800px;
-        left: 300px;
-        top: -100px;
+        left: 60%;
+        top: -50px;
     }
     
     .carrosel {
@@ -473,6 +489,7 @@ header {
     .conteudo {
         flex-direction: column;
         margin-left: 0;
+        padding-bottom: 50px;
     }
     
     .conteudo aside {
@@ -485,10 +502,15 @@ header {
     }
     
     .foto img {
-        position: static;
+        position: relative;
         height: auto;
         width: 100%;
-        margin-top: 2rem;
+        max-width: 500px;
+        left: auto;
+        top: auto;
+        transform: none;
+        margin: 2rem auto;
+        display: block;
     }
     
     #newsletter {
@@ -496,9 +518,13 @@ header {
         height: auto;
     }
     
-    #newsletter img,
     .formulario {
         width: 100%;
+    }
+
+    #newsletter img {
+        width: 100%;
+        height: 300px;
     }
     
     .carrosel {
