@@ -447,6 +447,17 @@ section[id] {
 }
 
 /* ============= RESPONSIVIDADE ============= */
+
+@media (min-width: 993px) {
+    .menu-toggle {
+        display: none !important;
+    }
+    
+    nav {
+        display: block !important;
+    }
+}
+
 @media (max-width: 1600px) {
     .foto img {
         height: 950px;
@@ -490,41 +501,70 @@ section[id] {
     }
 }
 
+
 @media (max-width: 992px) {
     header {
         padding: 1rem 2rem;
-        flex-wrap: wrap;
+        position: relative;
+    }
+    
+    .menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        z-index: 1001;
     }
     
     nav {
+        position: fixed;
+        top: 0;
+        left: 0;
         width: 100%;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease-out;
+        height: 100vh;
+        background-color: #1F1E26;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform: translateY(-100%);
+        transition: transform 0.3s ease;
+        z-index: 1000;
     }
     
     nav.active {
-        max-height: 500px;
-        padding-top: 1rem;
+        transform: translateY(0);
     }
     
     nav ul {
         flex-direction: column;
-        gap: 1rem;
-        text-align: center;
+        gap: 2rem;
         padding: 0;
     }
     
-    .menu-toggle {
-        display: block;
-        cursor: pointer;
+    nav a {
         font-size: 1.5rem;
     }
     
-    .menu-toggle {
-        display: none;
+    .conteudo {
+        padding: 2rem 1.5rem 3rem;
     }
-
+    
+    .conteudo aside {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .conteudo h2 {
+        font-size: 3.5em;
+    }
+    
+    .conteudo p {
+        max-width: 100%;
+        margin: 1.5rem auto;
+    }
+    
     .foto img {
         position: relative;
         height: auto;
@@ -533,110 +573,84 @@ section[id] {
         top: auto;
         right: auto;
         transform: none;
-        margin: 3rem auto 0;
-        display: block;
-        opacity: 1 !important;
-        transform: none !important;
+        margin: 2rem auto 0;
     }
     
-    @media (max-width: 992px) {
-        .menu-toggle {
-            display: block;
-        }
-    }
-}
-
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        gap: 1rem;
-    }
-    
-    nav ul {
-        flex-direction: column;
-        gap: 1rem;
-        text-align: center;
-    }
-    
-    .conteudo {
-        padding: 6rem 1.5rem 3rem;
-    }
-    
-    .conteudo h2 {
-        font-size: 3.5em;
+    #produtos {
+        margin-top: 0;
+        padding: 3rem 1rem;
     }
     
     #produtos h2,
-    #produtos p,
-    #avaliacoes h2,
-    #contato h2,
-    #newsletter h2,
-    #footer h2 {
-        padding-left: 1rem;
-        padding-right: 1rem;
-    }
-    
-    .cards-container {
-        flex-direction: column;
-        align-items: center;
+    #produtos p {
+        padding: 0.5rem 1rem;
+        text-align: center;
     }
     
     .carrosel {
-        gap: 2rem;
-    }
-    
-    .carrosel_item {
-        max-width: 90%;
-    }
-    
-    #footer {
-        padding: 2rem 1.5rem;
-        flex-direction: column;
-    }
-    
-    #footer aside {
-        margin-bottom: 2rem;
-        min-width: 100%;
-    }
-    
-    .iconesf {
-        justify-content: center;
-    }
-}
-
-@media (max-width: 576px) {
-    .conteudo h2 {
-        font-size: 2.8em;
-    }
-    
-    .conteudo p,
-    #produtos p,
-    .card p {
-        font-size: 0.9em;
-    }
-    
-    .carrosel {
+        gap: 3rem;
         padding: 1rem;
     }
     
+    .carrosel_item {
+        max-width: 100%;
+        margin-bottom: 2rem;
+    }
+    
+    #newsletter {
+        flex-direction: column;
+        height: auto;
+    }
+    
+    #newsletter img {
+        width: 100%;
+        height: 300px;
+    }
+    
     .formulario {
-        padding: 2rem 1rem;
+        width: 100%;
+        padding: 2rem 1.5rem;
+    }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+    header {
+        padding: 0.8rem 1rem;
+        position: fixed;
+        top: 0;
+        background-color: #1F1E26;
+    }
+    
+    .conteudo {
+        padding-top: 5rem;
+    }
+    
+    .conteudo h2 {
+        font-size: 2.5em;
     }
     
     .conteudo button {
         width: 100%;
     }
     
-    header {
-        padding: 1rem;
+    .cards-container {
+        padding: 0 0.5rem;
     }
     
-    .pessoa img {
-        width: 50px;
-        height: 50px;
+    .card {
+        min-width: 100%;
     }
     
-    #newsletter img {
-        height: 250px;
+    #footer {
+        padding: 2rem 1rem;
+    }
+    
+    #footer aside {
+        margin-bottom: 1.5rem;
+    }
+    
+    section[id] {
+        scroll-margin-top: 70px;
     }
 }
