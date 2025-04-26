@@ -79,7 +79,6 @@ nav li {
     position: absolute;
     top: -100px;
     right: -200px;
-    z-index: 1;
     transform: rotate(-5deg);
 }
 
@@ -89,7 +88,6 @@ main {
 
 .conteudo {
     display: flex;
-    z-index: 2;
     padding: 5rem 3rem;
 }
 
@@ -323,7 +321,7 @@ main {
 
 #newsletter img {
     width: 50%;
-    height: 100%;
+    height: auto;
     object-fit: cover;
     object-position: center;
 }
