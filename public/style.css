@@ -82,10 +82,6 @@ nav li {
     transform: rotate(-5deg);
 }
 
-main {
-    margin-top: 80px; 
-}
-
 .conteudo {
     display: flex;
     padding: 5rem 3rem;
