@@ -134,10 +134,9 @@ nav a:hover::after {
 #produtos {
     background-color: #5b1d19;
     color: white;
-    padding: 15rem 2rem 5rem;
+    padding: 5rem 2rem 5rem;
     margin-top: -200px;
     position: relative;
-    z-index: 3;
 }
 
 #produtos h2 {
@@ -444,7 +443,6 @@ nav a:hover::after {
 
 section[id] {
     scroll-margin-top: 100px;
-    padding-top: 20px;
 }
 
 /* ============= RESPONSIVIDADE ============= */
