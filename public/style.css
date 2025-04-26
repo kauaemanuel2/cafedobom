@@ -13,18 +13,17 @@ body {
     background-color: #1F1E26;
     color: white;
     position: relative;
-    padding-top: 100px;
+    height: 100vh;
     overflow: hidden;
 }
 
 header {
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    background-color: #1F1E26;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 1rem 2rem;
-    margin-bottom: 0;
+    background-color: #1F1E26;
+    color: white;
 }
 
 header h1 {
@@ -79,11 +78,9 @@ nav li {
     height: 1200px;
     position: absolute;
     top: -100px;
-    left: 50%;
-    transform: translateX(-30%);
-    max-width: 60vw;
-    object-fit: contain;
+    right: -200px;
     z-index: 1;
+    transform: rotate(-5deg);
 }
 
 main {
@@ -94,8 +91,7 @@ main {
     display: flex;
     position: relative;
     z-index: 2;
-    margin-left: 3rem;
-    padding-bottom: 200px
+    padding: 5rem 3rem;
 }
 
 .conteudo h2 {
@@ -116,7 +112,7 @@ main {
 }
 
 .conteudo aside {
-    width: 30vw;
+    width: 40%;
     margin: 2rem;
 }
 
@@ -140,7 +136,10 @@ main {
 #produtos {
     background-color: #5b1d19;
     color: white;
-    padding: 4rem 2rem 2rem;
+    padding: 15rem 2rem 5rem;
+    margin-top: -300px;
+    position: relative;
+    z-index: 3;
 }
 
 #produtos h2 {
@@ -307,7 +306,7 @@ main {
 #newsletter {
     display: flex;
     color: white;
-    min-height: 20rem;
+    height: 400px;
     background-color: #591F0A;
 }
 
@@ -325,7 +324,7 @@ main {
 
 #newsletter img {
     width: 50%;
-    height: 350px;
+    height: 100%;
     object-fit: cover;
     object-position: center;
 }
@@ -453,16 +452,21 @@ section[id] {
 @media (max-width: 1600px) {
     .foto img {
         height: 1000px;
-        left: 55%;
+        right: -250px;
     }
 
 @media (max-width: 1200px) {
     .foto img {
         height: 800px;
-        left: 60%;
+        right: -300px;
         top: -50px;
     }
     
+    #produtos {
+        padding-top: 10rem;
+        margin-top: -200px;
+    }
+
     .carrosel {
         gap: 8rem;
     }
@@ -472,7 +476,7 @@ section[id] {
     header {
         flex-direction: column;
         align-items: center;
-        margin-bottom: 3rem;
+        padding: 1rem;
     }
     
     header h1 {
