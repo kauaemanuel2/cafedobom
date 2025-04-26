@@ -79,7 +79,6 @@ nav a:hover::after {
     transform: rotate(-5deg);
     transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     will-change: transform;
-    opacity: 1;
 }
 
 .conteudo {
@@ -561,19 +560,12 @@ section[id] {
     }
     
     .conteudo p {
-        max-width: 100%;
-        margin: 1.5rem auto;
+        margin-left: auto;
+        margin-right: auto;
     }
     
     .foto img {
-        position: relative;
-        height: auto;
-        width: 100%;
-        max-width: 500px;
-        top: auto;
-        right: auto;
-        transform: none;
-        margin: 2rem auto 0;
+        display: none;
     }
     
     #produtos {
